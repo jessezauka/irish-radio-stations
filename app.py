@@ -11,9 +11,8 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/stations')
 def get_station():
-    return render_template("index.html", genres=list(mongo.db.menu.find()))
+    return render_template("index.html", genre=list(mongo.db.station.find()))
 
 
 @app.route('/genre/<radio_genre>')
@@ -33,7 +32,7 @@ def get_radio_details(radio_genre):
 
 @app.route('/stations/add_station')
 def add_station():
-    return render_template("add_station.html",  genre=mongo.db.menu.find())
+    return render_template("add_station.html",  genre=mongo.db.genre.find())
 
 
 @app.route('/insert_station', methods=['POST'])
@@ -46,7 +45,7 @@ def insert_station():
 @app.route('/edit_station/<station_id>')
 def edit_station(station_id):
     the_station = mongo.db.station.find_one({"_id": ObjectId(station_id)})
-    all_genres = mongo.db.menu.find()
+    all_genres = mongo.db.station.find()
     return render_template('edit_station.html', station=the_station,
                            genres=all_genres)
 
