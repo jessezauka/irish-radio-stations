@@ -16,35 +16,35 @@
 			<div class="post-preview ">
 				<a href="{{url_for('get_station')}}">
 					<h3 class="post-title">
-						{{ station.radio_name }}
+						{{ radio.radio_name }}
 					</h3>
 				</a>
 
 				<p class="">
                 <span>Website:</span>
-                   {{ station.radio_website }}
+                   {{ radio.radio_website }}
                 </p>
                 <p>
-                <span>Phone :</span>
-                  {{ station.radio_phone }}
+                <span>Phone:</span>
+                  {{ radio.radio_phone }}
                 </p>
                 <p>
-                    <span>Radio Description :</span>
+                    <span>Radio Description:</span>
                     <ul>
                     <!--Nested loop to display in a list-->
                     
-                            <li>{{ station.radio_description }}</li>
+                            <li>{{ radio.radio_description }}</li>
                         
                     </ul>
                 </p>
                 <p>
-                    <span>Live Stream :</span><br />
+                    <span>Live Stream:</span><br />
 
                    <!--Audio player code--> 
 
-                         <audio controls>
-  <source src="{{ station.radio_stream }}" type="audio/mpeg">
-  <source src="{{ station.radio_stream }}" type="audio/ogg">
+<audio controls>
+  <source src="{{ radio.radio_stream }}" type="audio/mpeg">
+  <source src="{{ radio.radio_stream }}" type="audio/ogg">
 </audio>
                                                                               
                         

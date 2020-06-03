@@ -27,7 +27,9 @@ def get_radio_details(radio_genre):
         title = 'Classic Hits'
     elif radio_genre == '80s':
         title = '80s'
-    return render_template('station_details.html', stations=mongo.db.station.find({"radio_genre": radio_genre}), title=title)
+    station = mongo.db.station.find({"radio_genre": radio_genre})
+    print(station)
+    return render_template('station_details.html', station=mongo.db.station.find({"radio_genre": radio_genre}), title=title)
 
 @app.route('/stations/add_station')
 def add_station():
