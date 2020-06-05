@@ -11,6 +11,7 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
+@app.route('/stations')
 def get_station():
     return render_template("index.html", genre=list(mongo.db.station.find()))
 
