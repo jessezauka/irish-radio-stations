@@ -9,18 +9,18 @@
 			<h2>
 			Explore Irish radio stations!
 			</h2>
-        
+
 			<hr>
             <!--  row inside a div and then you have added extra overriding rules -->
 			<div class=" row ">
             <!-- Anything with a 12 in it goes all the way across the page -->
-				
-					{% for radio in radio_genre %}
+
+					{% for radio in genre %}
                     <div class="col-md-6 text-center post-preview">
-					{% if radio.radio_genre == 'news' or radio.radio_genre == 'news' %}
+					{% if radio.radio_genre == 'news' or radio.radio_genre == 'pop' %}
                     
-					<img src= "{{ menu.img }}" class="media-object col-md-6 height=100 width=100" >
-					<a href="{{url_for('get_radio_details', radio_genre=genre.radio_genre|lower)}}">
+					<img src= "{{ radio.img }}" class="media-object col-md-6 height=100 width=100" >
+					<a href="{{url_for('get_radio_details', radio_genre=radio.radio_genre|lower)}}">
 						<h3 class="post-title ">
 							{{radio.radio_genre}}
 						</h3>
@@ -39,7 +39,7 @@
                     <div class="col-md-6 text-center post-preview">
 					{% if genre.radio_genre == 'pop' or genre.radio_genre == 'pop' %}
                     
-					<img src= "{{ menu.img }}" class="media-object col-md-6 height=100 width=100" >
+					<img src= "{{ radio.img }}" class="media-object col-md-6 height=100 width=100" >
 					<a href="{{url_for('get_radio_details', radio_genre=genre.radio_genre|lower)}}">
 						<h3 class="post-title ">
 							{{genre.radio_genre}}
@@ -56,7 +56,7 @@
                     <div class="col-md-6 text-center post-preview">
 					{% if genre.radio_genre == 'classic-hits' or genre.radio_genre == 'classic-hits' %}
                     
-					<img src= "{{ menu.img }}" class="media-object col-md-6 height=100 width=100" >
+					<img src= "{{ radio.img }}" class="media-object col-md-6 height=100 width=100" >
 					<a href="{{url_for('get_radio_details', radio_genre=genre.radio_genre|lower)}}">
 						<h3 class="post-title ">
 							{{genre.radio_genre}}
